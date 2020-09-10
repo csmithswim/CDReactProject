@@ -22,6 +22,11 @@ module.exports = (uri) => {
   });
 
   mongoose.connection.on("disconnected", (err) => {
-    console.error(`\nThe application has been disconnected from the database;\n\nError With DB: ${err.message || err}\n`);
+
+    if (err != undefined){
+
+      console.error(`\nThe application has been disconnected from the database;\n\nError With DB: ${err.message || err}\n`);
+    }
+    
   });
 };
