@@ -19,12 +19,7 @@ export default function Home() {
             style={{color: 'white', backgroundColor: 'black'}}
 
             />
-
-            {/*<a
-                href={loginLink}           
-            >
-            Login
-            </a> */}
+          
 
             <br/>
             <Button
@@ -32,13 +27,7 @@ export default function Home() {
             text='Register button'
 
             />
-            {/*<a
-                href={regLink}
-            >
-
-            Register
-
-            </a> */}
+         
 
         </div>
     )
