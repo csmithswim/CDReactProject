@@ -1,8 +1,14 @@
 import React from 'react';
+import Button from './Button';
+
+// import Input from './Input';
+import Form from './Form';
+import { loginInputs } from '../utils/userRequests'
+import userInputs from '../utils/userInputs';
 
 export default function Login() {
 
-    const loginLink = window.location.origin  + '/register';
+    const loginLink = '/login';
 
     return (
         <div>
@@ -10,11 +16,22 @@ export default function Login() {
                 Login To Your Account
             </h1>
             <br/>
-            <a
-                href={loginLink}           
-            >
-                Need An Account? Register Today!
-            </a>
+
+            <Form
+
+                id='loginForm'
+                inputs={userInputs}
+                title='Login!'      
+                submitFunc={() => {
+                    console.log(document.getElementById('loginform'));
+                }}         
+            />
+            
+            <Button
+            onClick = {() => {window.location = loginLink}}
+            text='Already Have An Account? Login'
+            style={{color: 'white', backgroundColor: 'black'}}
+            />
 
         </div>
     )
