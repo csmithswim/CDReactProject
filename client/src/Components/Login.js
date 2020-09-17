@@ -1,40 +1,33 @@
-import React from 'react';
-import Button from './Button';
+import React from "react"
 
-// import Input from './Input';
-import Form from './Form';
-import { loginInputs } from '../utils/userRequests'
-import userInputs from '../utils/userInputs';
+// components
+import Button from "./Button"
+import Form from "./Form"
+import { loginReq } from '../utils/userRequests'
+
+// utils
+import { loginInputs } from "../utils/userInputs"
 
 export default function Login() {
 
-    const loginLink = '/login';
+	const regLink = "/register";
 
-    return (
-        <div>
-            <h1>
-                Login To Your Account
-            </h1>
-            <br/>
-
-            <Form
-
-                id='loginForm'
-                inputs={userInputs}
-                title='Login!'      
-                submitFunc={() => {
-                    console.log(document.getElementById('loginform'));
-                }}         
-            />
-            
-            <Button
-            onClick = {() => {window.location = loginLink}}
-            text='Already Have An Account? Login'
-            style={{color: 'white', backgroundColor: 'black'}}
-            />
-
-        </div>
-    )
-
+	return (
+		<div className="login">
+      <Form 
+        title={"Login to Your Account"}
+        submitFunc={loginReq}
+        id={"loginForm"}
+        inputs={loginInputs}
+      />
+			<p>
+				Need an account?
+        <Button 
+          style={{color: 'white', backgroundColor: 'black'}}
+          text={"Sign Up"}
+          onClick={() => { window.location = regLink }}
+        />
+			</p>
+		</div>
+	)
 }
-
