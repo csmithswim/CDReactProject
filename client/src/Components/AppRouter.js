@@ -3,30 +3,47 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './Home';
 import Register from './Register';
 import Login from './Login';
+import Control from './Control';
+
+import useTheme from '../hooks/useTheme'
 
 export default function AppRouter() {
+
+    const [ theme, setTheme] = useTheme(true)
+    
     return (
-        <Switch>
-            <Route
-               exact path='/'
+        <div>
+            <Control />
+            {/* <h1>
+                {theme ? 'Light Mode' : 'Dark Mode'}
+            </h1> */}
+            {/* <button
+                onClick={() => {
+                    setTheme( prevTheme => {return !prevTheme})
+                }}
             >
-                    <Home />
-            </Route>
-            <Route
-                exact path='/login'
+            {!theme ? 'Switch To Light Mode' : 'Switch To Dark Mode'}
+            </button> */}
+            <Switch>
+                <Route
+                exact path='/'
                 >
-
-                    <Login />
+                        <Home />
                 </Route>
                 <Route
-                exact path='/register'
+                    exact path='/login'
+                    >
+                        <Login />
+                    </Route>
+                    <Route
+                    exact path='/register'
+                    >
+                        <Register />
+                    </Route>
+                    <Route
+                path='/'
                 >
-
-                    <Register />
-                </Route>
-                <Route
-               path='/'
-            >
+            
             <div>
                 <h1>
                     404
@@ -35,6 +52,7 @@ export default function AppRouter() {
                     <Home />
             </Route>
         </Switch>
+        </div>
     )
 
 }
